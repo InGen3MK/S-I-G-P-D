@@ -1,0 +1,46 @@
+body {
+background-color:antiquewhite;
+}
+#boton1 {
+padding-left: 200px;
+}
+#boton2 {
+    padding-left: 200px;
+}
+
+#titulo {text-align: center;}
+#tutablero {
+    width: 440px;
+    height: 400px;
+  align-items: center ;
+  padding-left: 50px;
+  padding-bottom: 10px;
+}
+#tablerito1 {
+    width: 120px;
+    height: 100px;
+    padding-left: 10px;
+}
+#tablerito2 {
+    width: 110px;
+    height: 100px;
+    padding-left: 10px;
+}
+#tablerito3 {
+    width: 110px;
+    height: 100px;
+    padding-left: 10px;
+}
+#tablerito4 {
+    width: 110px;
+    height: 100px;
+    padding-left: 10px;
+}
+#boton3 {
+    padding-left: 200px;
+}
+#rank {background-color: burlywood;
+    padding-left: 170px;}
+#boton4 {
+    padding-left: 200px;
+}
