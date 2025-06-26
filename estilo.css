@@ -2,10 +2,11 @@ body {
 background-color:antiquewhite;
 }
 #boton1 {
-margin: 200px;
+margin-top: 10px;
 }
 #boton2 {
-    margin: 200px;
+    margin-top: 10px;
+
 }
 
 #titulo {text-align: center;}
@@ -13,34 +14,34 @@ margin: 200px;
     width: 440px;
     height: 400px;
   align-items: center ;
-  margin: 50px;
+  margin-left: 38%;
   padding-bottom: 10px;
 }
 #tablerito1 {
     width: 120px;
     height: 100px;
-    margin: 10px;
+
 }
 #tablerito2 {
     width: 110px;
     height: 100px;
-    margin: 10px;
+
 }
 #tablerito3 {
     width: 110px;
     height: 100px;
-    margin: 10px;
+
 }
 #tablerito4 {
     width: 110px;
     height: 100px;
-    margin: 10px;
+
 }
 #boton3 {
-    margin: 200px;
+  margin-left: 95%;
 }
 #rank {background-color: burlywood;
     margin: 170px;}
 #boton4 {
-    margin: 200px;
+    margin-left: 45%;
 }
