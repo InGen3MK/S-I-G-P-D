@@ -14,7 +14,7 @@ margin-top: 10px;
     width: 440px;
     height: 400px;
   align-items: center ;
-  margin-left: 38%;
+  
   padding-bottom: 10px;
 }
 #tablerito1 {
@@ -44,4 +44,8 @@ margin-top: 10px;
     margin: 170px;}
 #boton4 {
     margin-left: 45%;
+}
+.tablapuntaje {
+ width: 1000px;;
+ height: 500px;
 }
