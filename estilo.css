@@ -49,3 +49,29 @@ margin-top: 10px;
  width: 1000px;;
  height: 500px;
 }
+
+
+/* parte Rodri */
+
+#tutablero 
+
+/* tablero mio jaja */
+#tutablero {
+  width: 100%;       /* Ocupa el 100% del ancho disponible */
+  height: auto;      /* Mantiene proporción */
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* tableros rivales */
+#tablerito1,
+#tablerito2,
+#tablerito3,
+#tablerito4 {
+  width: 90%;        /* tamaño (en porcentaje) */
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
