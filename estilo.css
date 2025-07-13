@@ -3,9 +3,12 @@ background-color:antiquewhite;
 }
 #boton1 {
 margin-top: 10px;
+
+margin-left: 45%;
 }
 #boton2 {
     margin-top: 10px;
+    margin-left: 45%;
 
 }
 
@@ -38,16 +41,17 @@ margin-top: 10px;
 
 }
 #boton3 {
-  margin-left: 95%;
+  margin-left: 45%;
 }
 #rank {background-color: burlywood;
     margin: 170px;}
 #boton4 {
-    margin-left: 45%;
+  margin-left: 45%;
+    align-content: center;
 }
 .tablapuntaje {
- width: 1000px;;
- height: 500px;
+ width: 100%;;
+ height: 100%;
 }
 
 
@@ -75,3 +79,5 @@ margin-top: 10px;
   display: block;
   margin: 0 auto;
 }
+#manual {width: 100%;
+  height: 100%;}
