@@ -30,7 +30,7 @@
                                     
 <input type="text" id="disabledTextInput" class="form-control" placeholder="Ingrese Jugador 5">
 <br>
-<button type="submit" class="btn btn-warning btn btn-primary btn-lg"><a href="tercera.html">Enviar</a></button> 
+<button type="button" class="btn btn-warning btn btn-primary btn-lg" id="terci">Enviar</button> 
 
                                                 
 
@@ -38,5 +38,13 @@
     </div>
     </div>
 </div>
+<script>
+    const terciaria = document.getElementById('terci');
+    terciaria.addEventListener("click",() => {
+      window.location.href = "tercera.html";
+
+
+    });
+  </script>
 </body>
 </html>

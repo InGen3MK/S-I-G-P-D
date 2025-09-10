@@ -25,10 +25,11 @@
       </select>
     </div>
     <div class="col-12 col-md-8 col-lg-6 mx-auto mb-4 text-center">
-      <a class="btn btn-primary btn-lg me-2" href="manual.html">Reglas</a>
+      <a class="btn btn-primary btn-lg me-2"  id="regla">Reglas</a>
       <a class="btn btn-success btn-lg me-2" href="segunda.html">Iniciar</a>
-      <a class="btn btn-warning btn-lg" href="registro.html">Registrarse</a>
+      <a class="btn btn-warning btn-lg" href="login.html">Iniciar sesion</a>
     </div>
+  
     <div class="col-12 col-md-10 mx-auto mb-5">
       <p>
         <strong>Draftosaurus</strong> es un divertido y estratégico juego de mesa en el que los jugadores asumen el
@@ -51,6 +52,14 @@
       </p>
     </div>
   </div>
+  <script>
+    const reglas = document.getElementById('regla');
+    reglas.addEventListener("click",() => {
+      window.location.href = "manual.html";
+
+
+    });
+  </script>
 </body>
 
 </html>
