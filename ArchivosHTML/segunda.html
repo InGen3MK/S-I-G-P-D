@@ -1,50 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Draftosaurus</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-      rel="stylesheet" 
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-      crossorigin="anonymous"
-    >
-<link rel="stylesheet" href="../ArchivosCSS/estilo.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draftosaurus</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link rel="stylesheet" href="../ArchivosCSS/estilo.css">
 </head>
+
 <body class="container">
-<div class="row">
+  <div class="row">
     <div class="col-sm-12" id="titulo">
-        <h1>Ingresar jugadores</h1>
-        <div class="col-sm-12">
-    <form action="">
-        <input type="text" id="disabledTextInput" class="form-control" placeholder="Ingrese Jugador 1" required>
-
-        <br>        
-         <input type="text" id="disabledTextInput" class="form-control" placeholder="Ingrese Jugador 2" required>
-<br>
-          <input type="text" id="disabledTextInput" class="form-control" placeholder="Ingrese Jugador 3">
-<br>
-           <input type="text" id="disabledTextInput" class="form-control" placeholder="Ingrese Jugador 4">
-<br>
-                                    
-<input type="text" id="disabledTextInput" class="form-control" placeholder="Ingrese Jugador 5">
-<br>
-<button type="button" class="btn btn-warning btn btn-primary btn-lg" id="terci">Enviar</button> 
-
-                                                
-
-    </form>
+      <h1>Ingresar jugadores</h1>
+      <div>
+        <select class="form-select" name="CantJugadores" id="CantJugadores" aria-required="true">
+          <option value="" disabled selected>Cantidad de Jugadores</option>
+          <option value="2">2 Jugadores</option>
+          <option value="3">3 Jugadores</option>
+          <option value="4">4 Jugadores</option>
+          <option value="5">5 Jugadores</option>
+        </select>
+      </div>
+      <br>
+      <div class="col-sm-12">
+        <form action="">
+          <input type="text" name="jugador1" class="form-control jugador1" placeholder="Ingrese Jugador 1" required>
+          <br>
+          <input type="text" name="jugador2" class="form-control jugador2" placeholder="Ingrese Jugador 2" required>
+          <br>
+          <input type="text" name="jugador3" class="form-control jugador3" placeholder="Ingrese Jugador 3">
+          <br>
+          <input type="text" name="jugador4" class="form-control jugador4" placeholder="Ingrese Jugador 4">
+          <br>
+          <input type="text" name="jugador5" class="form-control jugador5" placeholder="Ingrese Jugador 5">
+          <br>
+          <button type="button" class="btn btn-warning btn btn-primary btn-lg" id="terci">Enviar</button>
+        </form>
+      </div>
     </div>
-    </div>
-</div>
-<script>
-    const terciaria = document.getElementById('terci');
-    terciaria.addEventListener("click",() => {
+  </div>
+  <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const selectElement = document.getElementById("CantJugadores");
+    const bloque_1 = document.querySelector(".jugador1");
+    const bloque_2 = document.querySelector(".jugador2");
+    const bloque_3 = document.querySelector(".jugador3");
+    const bloque_4 = document.querySelector(".jugador4");
+    const bloque_5 = document.querySelector(".jugador5");
+
+    // Mostrar inicialmente solo los dos primeros
+    bloque_1.style.display = "flex";
+    bloque_2.style.display = "flex";
+    bloque_3.style.display = "none";
+    bloque_4.style.display = "none";
+    bloque_5.style.display = "none";
+
+    selectElement.addEventListener("change", (event) => {
+        const jugadores = event.target.value;
+        console.log(`${jugadores}`);
+
+        if (jugadores == 2) {
+            bloque_1.style.display = "flex";
+            bloque_2.style.display = "flex";
+            bloque_3.style.display = "none";
+            bloque_4.style.display = "none";
+            bloque_5.style.display = "none";
+        } else if (jugadores == 3) {
+            bloque_1.style.display = "flex";
+            bloque_2.style.display = "flex";
+            bloque_3.style.display = "flex";
+            bloque_4.style.display = "none";
+            bloque_5.style.display = "none";
+        } else if (jugadores == 4) {
+            bloque_1.style.display = "flex";
+            bloque_2.style.display = "flex";
+            bloque_3.style.display = "flex";
+            bloque_4.style.display = "flex";
+            bloque_5.style.display = "none";
+        } else if (jugadores == 5) {
+            bloque_1.style.display = "flex";
+            bloque_2.style.display = "flex";
+            bloque_3.style.display = "flex";
+            bloque_4.style.display = "flex";
+            bloque_5.style.display = "flex";
+        }
+    });
+});
+const terciaria = document.getElementById('terci');
+    terciaria.addEventListener("click", () => {
       window.location.href = "tercera.html";
 
 
     });
   </script>
 </body>
+
 </html>

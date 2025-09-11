@@ -15,15 +15,7 @@
     <div class="col-12 text-center my-4" id="titulo">
       <h1>Draftosaurus</h1>
     </div>
-    <div class="col-12 col-md-10 mx-auto mb-4">
-      <select class="form-select" name="CantJugadores" id="CantJugadores" aria-required="true">
-        <option value="" disabled selected>Cantidad de Jugadores</option>
-        <option value="2">2 Jugadores</option>
-        <option value="3">3 Jugadores</option>
-        <option value="4">4 Jugadores</option>
-        <option value="5">5 Jugadores</option>
-      </select>
-    </div>
+    
     <div class="col-12 col-md-8 col-lg-6 mx-auto mb-4 text-center">
       <a class="btn btn-primary btn-lg me-2"  id="regla">Reglas</a>
       <a class="btn btn-success btn-lg me-2" href="segunda.html">Iniciar</a>
@@ -53,13 +45,14 @@
     </div>
   </div>
   <script>
-    const reglas = document.getElementById('regla');
+  const reglas = document.getElementById('regla');
     reglas.addEventListener("click",() => {
       window.location.href = "manual.html";
 
 
     });
   </script>
+  
 </body>
 
 </html>
