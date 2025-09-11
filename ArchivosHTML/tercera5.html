@@ -11,37 +11,38 @@
 </head>
 
 <body>
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-sm-12" id="titulo">
             <h1>Draftosaurus</h1>
-            <h4>Tablero del jugador 5</h4>
+            <h4>Tu Tablero</h4>
         </div>
         
-        <div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
             <img src="../Imagenes/tablero.jpeg" alt="tablero de juego" id="tutablero">
         </div>
         <div class="row" >
             <div id="titulo">
-<h5>Tableros rivales</h5>
             </div>
-         <div class="col-3"> Jugador 2
-                <a href="tercera2.html"><img src="../Imagenes/tablero.jpeg" alt="tablero de juego" id="tablerito1"></a>
-            </div>
-            <div class="col-3"> Jugador 3
-                <a href="tercera3.html"><img src="../Imagenes/tablero.jpeg" alt="tablero de juego" id="tablerito2"></a>
-            </div>
-            <div class="col-3"> Jugador 4
-                <a href="tercera4.html"><img src="../Imagenes/tablero.jpeg" alt="tablero de juego" id="tablerito3"></a>
-            </div>
-            <div class="col-3"> Jugador 1
-                <a href="tercera.html"><img src="../Imagenes/tablero.jpeg" alt="tablero de juego" id="tablerito4"> </a>
+            
+        
+                
             </div>
         </div>
     </div>
     
-    
-    <button type="submit" class="btn btn-warning btn btn-primary btn-lg" id="boton3"><a href="cuarta.html">Enviar</a></button> 
+    <div class="col-sm-12">
+    <button type="submit" class="btn btn-warning btn btn-primary btn-lg" id="boton3">Enviar</button> 
+</div>
+<script>
+  const boton3 = document.getElementById('boton3');
+    boton3.addEventListener("click",() => {
+      window.location.href = "cuarta.html";
 
+
+    });
+  </script>
 </body>
+
 
 </html>
