@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     selectElement.addEventListener("change", (event) => {
         const jugadores = event.target.value;
-        console.log('${jugadores}');
+        console.log(`${jugadores}`);
 
         if (jugadores == 2) {
             bloque_1.style.display = "flex";
@@ -44,5 +44,9 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+const terciaria = document.getElementById('terci');
+    terciaria.addEventListener("click", () => {
+      window.location.href = "tercera.html";
 
- 
+
+    });
