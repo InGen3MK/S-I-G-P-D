@@ -12,34 +12,43 @@
 
 <body class="container">
   <div class="row">
-    <div class="col-sm-12" id="titulo">
+    <div class="col-12 text-center mb-4">
       <h1>Ingresar jugadores</h1>
-      <div>
-        <select class="form-select" name="CantJugadores" id="CantJugadores" aria-required="true">
-          <option value="" disabled selected>Cantidad de Jugadores</option>
-          <option value="2">2 Jugadores</option>
-          <option value="3">3 Jugadores</option>
-          <option value="4">4 Jugadores</option>
-          <option value="5">5 Jugadores</option>
-        </select>
-      </div>
-      <br>
-      <div class="col-sm-12">
-        <form action="">
-          <input type="text" name="jugador1" class="form-control jugador1" placeholder="Ingrese Jugador 1" required>
-          <br>
-          <input type="text" name="jugador2" class="form-control jugador2" placeholder="Ingrese Jugador 2" required>
-          <br>
-          <input type="text" name="jugador3" class="form-control jugador3" placeholder="Ingrese Jugador 3">
-          <br>
-          <input type="text" name="jugador4" class="form-control jugador4" placeholder="Ingrese Jugador 4">
-          <br>
-          <input type="text" name="jugador5" class="form-control jugador5" placeholder="Ingrese Jugador 5">
-          <br>
-          <button type="button" class="btn btn-warning btn btn-primary btn-lg" id="terci">Enviar</button>
-        </form>
-      </div>
     </div>
+  </div>
+  <select class="form-select" name="CantJugadores" id="CantJugadores" aria-required="true">
+    <option value="" disabled selected>Cantidad de Jugadores</option>
+    <option value="2">2 Jugadores</option>
+    <option value="3">3 Jugadores</option>
+    <option value="4">4 Jugadores</option>
+    <option value="5">5 Jugadores</option>
+  </select>
+  </div>
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <form action="">
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Ingrese Jugador 1" required>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Ingrese Jugador 2" required>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Ingrese Jugador 3">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Ingrese Jugador 4">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Ingrese Jugador 5">
+        </div>
+        <div class="text-center">
+          <a href="tercera.html" class="btn btn-warning btn-lg">Enviar</a>
+        </div>
+      </form>
+    </div>
+  </div>
   </div>
   <script src="../ArchivosJS/select.js"></script>
 </body>
