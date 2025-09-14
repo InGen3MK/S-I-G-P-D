@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+ window.addEventListener("DOMContentLoaded", () => {
     const selectElement = document.getElementById("CantJugadores");
     const bloque_1 = document.querySelector(".jugador1");
     const bloque_2 = document.querySelector(".jugador2");

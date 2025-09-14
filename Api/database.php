@@ -2,7 +2,7 @@
 
 // Definimos constantes para los datos de conexión a la base de datos
 const DB_HOST = 'localhost'; // Dirección del servidor de base de datos (normalmente 'localhost')
-const DB_NAME = 'fauna_uruguay'; // Nombre de la base de datos a la que queremos conectarnos
+const DB_NAME = 'DBSIGPD'; // Nombre de la base de datos a la que queremos conectarnos
 const DB_USER = 'root'; // Usuario de la base de datos (por defecto en XAMPP suele ser 'root')
 const DB_PASS = ''; // Contraseña del usuario de la base de datos (en XAMPP suele estar vacía)
 
