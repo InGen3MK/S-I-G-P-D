@@ -30,7 +30,7 @@ class Usuarios
     public function getByName($nickname)
     {
         // Creamos la consulta SQL con un marcador de posición para el ID
-        $query = "SELECT id_usuario,nickname,contraseña FROM {$this->table} WHERE nickname = :nickname";
+        $query = "SELECT id_usuario,nickname,contraseña FROM {$this->table} WHERE nickname = :nickname, ";
         // Preparamos la consulta usando la conexión a la base de datos
         $stmt = $this->conn->prepare($query);
         // Asociamos el valor recibido en $id al marcador ':id' en la consulta, asegurando que sea un entero
