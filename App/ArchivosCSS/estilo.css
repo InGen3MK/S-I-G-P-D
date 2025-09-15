@@ -1,59 +1,57 @@
 body {
-background-color:antiquewhite;
+  background-color: antiquewhite;
 }
 #boton1 {
-margin-top: 10px;
+  margin-top: 10px;
 
-margin-left: 45%;
+  margin-left: 45%;
 }
 #boton2 {
-    margin-top: 10px;
-    margin-left: 45%;
-
+  margin-top: 10px;
+  margin-left: 45%;
 }
 
-#titulo {text-align: center;}
+#titulo {
+  text-align: center;
+}
 #tutablero {
-    width: 440px;
-    height: 400px;
-  align-items: center ;
-  
+  width: 440px;
+  height: 400px;
+  align-items: center;
+
   padding-bottom: 10px;
 }
 #tablerito1 {
-    width: 120px;
-    height: 100px;
-
+  width: 120px;
+  height: 100px;
 }
 #tablerito2 {
-    width: 110px;
-    height: 100px;
-
+  width: 110px;
+  height: 100px;
 }
 #tablerito3 {
-    width: 110px;
-    height: 100px;
-
+  width: 110px;
+  height: 100px;
 }
 #tablerito4 {
-    width: 110px;
-    height: 100px;
-
+  width: 110px;
+  height: 100px;
 }
 #boton3 {
   margin-left: 47%;
 }
-#rank {background-color: burlywood;
-    margin: 170px;}
+#rank {
+  background-color: burlywood;
+  margin: 170px;
+}
 #boton4 {
   margin-left: 45%;
-    align-content: center;
+  align-content: center;
 }
 .tablapuntaje {
- width: 100%;;
- height: 100%;
+  width: 100%;
+  height: 100%;
 }
-
 
 /* parte Rodri */
 
@@ -61,8 +59,8 @@ margin-left: 45%;
 
 /* tablero mio jaja */
 #tutablero {
-  width: 100%;       /* Ocupa el 100% del ancho disponible */
-  height: auto;      /* Mantiene proporción */
+  width: 100%; /* Ocupa el 100% del ancho disponible */
+  height: auto; /* Mantiene proporción */
   display: block;
   margin: 0 auto;
   max-width: 100%;
@@ -73,11 +71,13 @@ margin-left: 45%;
 #tablerito2,
 #tablerito3,
 #tablerito4 {
-  width: 90%;        /* tamaño (en porcentaje) */
+  width: 90%; /* tamaño (en porcentaje) */
   height: auto;
   max-width: 100%;
   display: block;
   margin: 0 auto;
 }
-#manual {width: 100%;
-  height: 100%;}
+#manual {
+  width: 100%;
+  height: 100%;
+}
