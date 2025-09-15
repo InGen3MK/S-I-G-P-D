@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ];
             $resultado = $controller->loginUsuario($data);
             echo $resultado['message'];
-        } else {
+        } else if (isset($_POST['registro'])) {
             $data = [
                 'nickname' => $_POST['nickname'] ?? '',
                 'gmail' => $_POST['gmail'] ?? '',
@@ -52,6 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ];
             $resultado = $controller->registrarUsuario($data);
             echo $resultado['message'];
+        } else {
+            echo 'Acción no reconocida.';
         }
     } else {
         echo 'No se pudo conectar a la base de datos.';
