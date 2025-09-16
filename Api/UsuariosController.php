@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db = $database->connect();
     if ($db) {
         $controller = new UsuariosController($db);
+        // instancia todo lo que tiene la clase UsuariosController desde la linea 6 para poder llamar a las funcionalidades
         // Si es login
         if (isset($_POST['login'])) {
             $data = [
