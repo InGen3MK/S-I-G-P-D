@@ -1,20 +1,25 @@
 body {
+  /* Color de fondo principal de la página */
   background-color: antiquewhite;
 }
 #boton1 {
+  /* Botón principal, centrado y con margen superior */
   margin-top: 10px;
 
   margin-left: 45%;
 }
 #boton2 {
+  /* Segundo botón, centrado y con margen superior */
   margin-top: 10px;
   margin-left: 45%;
 }
 
 #titulo {
+  /* Título centrado */
   text-align: center;
 }
 #tutablero {
+  /* Tablero principal del juego, tamaño y alineación */
   width: 440px;
   height: 400px;
   align-items: center;
@@ -22,18 +27,22 @@ body {
   padding-bottom: 10px;
 }
 #tablerito1 {
+  /* Tablero pequeño 1, usado para mostrar miniaturas */
   width: 120px;
   height: 100px;
 }
 #tablerito2 {
+  /* Tablero pequeño 2 */
   width: 110px;
   height: 100px;
 }
 #tablerito3 {
+  /* Tablero pequeño 3 */
   width: 110px;
   height: 100px;
 }
 #tablerito4 {
+  /* Tablero pequeño 4 */
   width: 110px;
   height: 100px;
 }

@@ -1,4 +1,5 @@
 <?php
+// Archivo de configuración y clase para la conexión a la base de datos
 
 // Definimos constantes para los datos de conexión a la base de datos
 const DB_HOST = 'localhost'; // Dirección del servidor de base de datos (normalmente 'localhost')
@@ -36,7 +37,7 @@ class Database
             // Si ocurre un error, mostramos un mensaje con la descripción
             echo "Error de conexión: " . $e->getMessage();
         }
-        // Devolvemos el objeto de conexión (o null si falló)
+        // Devuelve el objeto de conexión (o null si falló)
         return $this->conn;
     }
 }

@@ -16,36 +16,42 @@
         class="row justify-content-center align-items-center"
         style="height: 100vh"
       >
-        <!-- el style="height: 100vh;" de la línea anterior es para que siempre esté en el centro de la pantalla (de forma vertical). -->
+        <!-- El style="height: 100vh;" de la línea anterior es para que el contenido esté centrado verticalmente en la pantalla. -->
         <div
           class="col-12 col-sm-8 col-md-6 col-lg-4 bg-white p-4 rounded shadow"
         >
           <h2>Iniciar sesión</h2>
-          <form action="index.html" method="get">
-            <form action="../../Api/UsuariosController.php" method="post">
-                <input type="hidden" name="login" value="1" />
-                <div class="mb-3">
-                  <label class="form-label">Usuario:</label>
-                  <input type="text" name="nickname" class="form-control" />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Contraseña:</label>
-                  <input type="password" name="contraseña" class="form-control" />
-                </div>
-                <div class="mb-3 text-center">
-                  <label>¿No tienes cuenta?: </label>
-                  <a href="registro.html">Crear</a>
-                </div>
-                <div class="text-center">
-                  <button class="btn btn-warning btn-lg" type="submit">
-                    Siguiente
-                  </button>
-                </div>
-            </form>
+          <!-- Formulario de inicio de sesión -->
+          <form action="../../Api/UsuariosController.php" method="post">
+            <input type="hidden" name="login" value="1" />
+            <!-- Campo oculto para indicar acción de login -->
+            <div class="mb-3">
+              <label class="form-label">Usuario:</label>
+              <input type="text" name="nickname" class="form-control" />
+              <!-- Campo para el nombre de usuario -->
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Contraseña:</label>
+              <input type="password" name="contraseña" class="form-control" />
+              <!-- Campo para la contraseña -->
+            </div>
+            <div class="mb-3 text-center">
+              <label>¿No tienes cuenta?: </label>
+              <a href="registro.html">Crear</a>
+              <!-- Enlace para ir a la página de registro -->
+            </div>
+            <div class="text-center">
+              <button class="btn btn-warning btn-lg" type="submit">
+                Siguiente
+                <!-- Botón para enviar el formulario -->
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </body>
 
+  <!-- Script para validaciones y envío AJAX del formulario de login -->
   <script src="../ArchivosJS/login.js"></script>
 </html>
