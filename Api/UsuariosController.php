@@ -20,11 +20,7 @@ class UsuariosController
     }
     // Otros métodos: login, actualizar, eliminar, etc.
 
-    // Método público para insertar un usuario de prueba directamente
-    public function insertarDirecto()
-    {
-        return $this->usuario->insertarDirecto();
-    }
+   
 
     // Método para login de usuario (llama al modelo)
     public function loginUsuario($data)
