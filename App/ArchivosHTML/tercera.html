@@ -11,41 +11,57 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row justify-content-center">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
       <div class="col-12 text-center" id="titulo">
         <h1>Draftosaurus</h1>
         <h4>Mi tablero</h4>
       </div>
 
-      </div>
-    
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6 text-center">
-            <img src="../Imagenes/tablero.jpeg" alt="tablero de juego" id="tutablero" class="img-fluid">
-        </div>
     </div>
-    
-   <div class="row justify-content-center mt-4">
-    <div class="col-auto d-flex align-items-center">
-        <button type="button" class="btn btn-secondary btn-lg" id="botonAtras">Atrás</button>
-        <button type="submit" class="btn btn-warning btn-lg" id="boton3">Enviar</button> 
-    </div>
+<div id="back">
+  <div id="semejanza"></div>
+  <div id="diferencia"></div>
+  <div id="amor"></div>
+  <div id="trio"></div>
+  <div id="rey"></div>
+  <div id="isla"></div>
+  <div id="rio"></div>
 </div>
+   <!-- /* <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 text-center">
+        <img src="../Imagenes/tablero.jpeg" alt="tablero de juego" id="tutablero" class="img-fluid">
+      </div>
+    </div>*/ -->
+    <div id="dinosaurios">
+      <div class="dino1" draggable="true" data-dino="TRex">TRex</div>
+      <div class="dino2" draggable="true" data-dino="Raptor">Raptor</div>
+      <div class="dino3" draggable="true" data-dino="Ptero">Triceratops</div>
+      <div class="dino4" draggable="true" data-dino="Stego">Brachiosaurus</div>
+      <div class="dino5" draggable="true" data-dino="Spino">Parasaurolophus</div>
+      <div class="dino6" draggable="true" data-dino="Mega">Stegosaurio</div>
+    </div>
 
- 
-  <script>
-    const boton3 = document.getElementById('boton3');
-    const botonAtras = document.getElementById('botonAtras');
-    
-    boton3.addEventListener("click", () => {
-      window.location.href = "cuarta.html";
-    });
-    
-    botonAtras.addEventListener("click", () => {
-      window.location.href = "index.html";
-    });
-</script>
+    <div class="row justify-content-center mt-4">
+      <div class="col-auto d-flex align-items-center">
+        <button type="button" class="btn btn-secondary btn-lg" id="botonAtras">Atrás</button>
+        <button type="submit" class="btn btn-warning btn-lg" id="boton3">Enviar</button>
+      </div>
+    </div>
+
+
+    <script>
+      const boton3 = document.getElementById('boton3');
+      const botonAtras = document.getElementById('botonAtras');
+
+      boton3.addEventListener("click", () => {
+        window.location.href = "cuarta.html";
+      });
+
+      botonAtras.addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    </script>
 
 </body>
 
