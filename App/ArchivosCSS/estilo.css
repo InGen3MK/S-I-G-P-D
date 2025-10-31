@@ -42,12 +42,12 @@ body {
 }
 #boton3 {
   margin-left: 15%;
-  margin-top: 350%;
+  margin-top: 250%;
 }
 
 #botonAtras {
   margin-left: 5%;
-margin-top: 350%;  
+margin-top: 250%;  
 }
 
 #rank {
@@ -64,9 +64,61 @@ margin-top: 350%;
   height: 100%;
 }
 
-/* parte Rodri */
+/* Estilos para Drag and Drop */
 
-#tutablero 
+/* Zonas de drop */
+#back div {
+  transition: all 0.3s ease;
+  border: 2px dashed transparent;
+}
+
+#back div.drag-over {
+  border: 2px dashed #000;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Efectos al arrastrar */
+[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+.dragging {
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+/* Botón de eliminar dinosaurio */
+.delete-dino {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  display: none;
+}
+
+#back div:hover .delete-dino {
+  display: block;
+}
+
+/* Puntos del recinto */
+.puntos-recinto {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 14px;
+}
 
 /* tablero mio jaja */
 #tutablero {
@@ -75,6 +127,8 @@ margin-top: 350%;
   display: block;
   margin: 0 auto;
   max-width: 100%;
+  align-content: center;
+  left: 50%;;
 }
 
 /* tableros rivales */
