@@ -22,8 +22,7 @@ CREATE TABLE
 
 CREATE TABLE
     tablero (
-        id_tablero INT AUTO_INCREMENT PRIMARY KEY,
-        lado VARCHAR(100) NOT NULL
+        id_tablero INT AUTO_INCREMENT PRIMARY KEY
     );
 
 CREATE TABLE
@@ -39,7 +38,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    forma (id_forma INT AUTO_INCREMENT PRIMARY KEY);
+    utiliza (id_forma INT AUTO_INCREMENT PRIMARY KEY);
 
 CREATE TABLE
     piezas (
