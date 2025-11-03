@@ -153,25 +153,4 @@ class Usuarios
         // Obtenemos el resultado como un array asociativo (solo un registro) y lo devolvemos
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-    public function insertarUsuario($id_partida, $jugadores, $puntaj, $ganador)
-    {
-        // Creamos la consulta SQL con dos marcadores de posición para los parametros a ingresar
-        $query = "INSERT INTO Partida(id_partida, cantidad_jugadores, ganador) VALUES (:id_partida, :jugadores, :ganador);";
-        // Preparamos la consulta usando la conexión a la base de datos
-        $stmt = $this->conn->prepare($query);
-        // Asociamos los valores de los marcadores con las variables que recibimos
-        $stmt->bindParam(":id_partida", $id_partida, PDO::PARAM_STR);
-
-        $stmt->bindParam(":jugadores", $jugadores, PDO::PARAM_INT);
-
-        $stmt->bindParam(":ganador", $ganador, PDO::PARAM_INT);
-        // Ejecutamos la consulta preparada y devolvemos el ID insertado si tiene éxito
-        if ($stmt->execute()) {
-            // retorna el último id de la tabla a insertar en la base de datos
-            return $this->conn->lastInsertId();
-        }
-
-        return false;
-    }
 }

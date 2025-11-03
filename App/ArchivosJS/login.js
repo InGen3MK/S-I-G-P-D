@@ -68,6 +68,14 @@ document.addEventListener("DOMContentLoaded", function () {
           // Si el login es exitoso, muestra mensaje de éxito y temporizador para redirigir.
           div.classList.add("alert-success");
           div.innerHTML = data;
+          // Guardar usuario en localStorage (clave única 'usuario') para uso en partidas
+          try {
+            // nickname viene del formulario
+            localStorage.setItem("usuario", nickname);
+          } catch (e) {
+            // si localStorage no está disponible, no bloqueamos el flujo
+            console.warn("No se pudo guardar usuario en localStorage", e);
+          }
           let seconds = 3;
           const timer = document.createElement("span");
           timer.id = "timer-login";

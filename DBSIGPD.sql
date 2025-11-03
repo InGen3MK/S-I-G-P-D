@@ -13,7 +13,7 @@ CREATE TABLE
 CREATE TABLE
     partida (
         id_partida INT AUTO_INCREMENT PRIMARY KEY,
-        cantidad_jugadores VARCHAR(100) NOT NULL,
+        puntuacion INT NOT NULL,
         ganador VARCHAR(150) NOT NULL
     );
 

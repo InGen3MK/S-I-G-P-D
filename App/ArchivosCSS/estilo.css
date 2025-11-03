@@ -19,7 +19,6 @@ body {
   text-align: center;
 }
 
-
 #tablerito1 {
   /* Tablero pequeño 1, usado para mostrar miniaturas */
   width: 120px;
@@ -40,15 +39,6 @@ body {
   width: 110px;
   height: 100px;
 }
-#boton3 {
-  margin-left: 15%;
-  margin-top: 250%;
-}
-
-#botonAtras {
-  margin-left: 5%;
-margin-top: 250%;  
-}
 
 #rank {
   background-color: burlywood;
@@ -57,7 +47,6 @@ margin-top: 250%;
 #boton4 {
   margin-left: 35%;
   align-content: center;
-  
 }
 .tablapuntaje {
   width: 100%;
@@ -69,10 +58,15 @@ margin-top: 250%;
 /* Zonas de drop */
 #back div {
   transition: all 0.3s ease;
-  border: 2px dashed transparent;
 }
 
-#back div.drag-over {
+/* Borde por defecto de cada zona: punteado 1px blanco */
+.zone {
+  border: 1px dotted #fff;
+}
+
+/* Estado visual cuando hay drag sobre la zona */
+.zone.drag-over {
   border: 2px dashed #000;
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -128,7 +122,7 @@ margin-top: 250%;
   margin: 0 auto;
   max-width: 100%;
   align-content: center;
-  left: 50%;;
+  left: 50%;
 }
 
 /* tableros rivales */
@@ -150,8 +144,7 @@ margin-top: 250%;
   background: url("../Imagenes/tablero.jpeg") center / cover;
   height: 700px;
   width: 700px;
-  margin-left: 30%;
-}	
+}
 #semejanza {
   left: 1px;
   position: relative;
@@ -162,28 +155,25 @@ margin-top: 250%;
 }
 
 #diferencia {
-  
   left: 1px;
   position: relative;
   height: 150px;
-  width: 220px;
-  margin-left: 60%;
+  width: 190px;
+  margin-left: 65%;
   top: 14%;
 }
 
-#amor {
-  
+#trio {
   left: 1px;
   position: relative;
   height: 150px;
-  width: 230px;
+  width: 200px;
   margin-right: 5%;
   margin-left: 5%;
   top: -10%;
 }
 
-#trio {
-  
+#amor {
   left: 1px;
   position: relative;
   height: 150px;
@@ -193,18 +183,15 @@ margin-top: 250%;
 }
 
 #rey {
-  
   left: 1px;
   position: relative;
   height: 150px;
-  width: 220px;
-  margin-left: 60%;
+  width: 190px;
+  margin-left: 65%;
   top: -80%;
 }
 
-
 #isla {
-  
   left: 1px;
   position: relative;
   height: 150px;
@@ -214,61 +201,127 @@ margin-top: 250%;
 }
 
 #rio {
-  
   left: 1px;
   position: relative;
   height: 100%;
-  width: 220px;
-  margin-left: 33%;
+  width: 160px;
+  margin-left: 38%;
   top: -128.5%;
 }
 #dinosaurios {
   background-color: aqua;
-  height: 230px;
-  width: 200px;
   font-size: 25px;
   border: 2px solid black;
-  margin-left: 80%;
-  margin-top: -35%;
-  
+}
+/* Etiqueta con fondo blanco para el nombre de la zona */
+.zone .zone-label {
+  background: #ffffff; /* fondo blanco opaco */
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Asegurar que la etiqueta se muestre por encima de la imagen de fondo */
+.zone {
+  position: relative;
+  z-index: 2;
 }
 
 .dino1 {
-background-color: rgb(255, 0, 0);  height: 38px;
+  background-color: rgb(255, 0, 0);
+  height: 38px;
   width: 200px;
   border: 2px solid black;
-  
 }
 .dino2 {
-background-color: rgb(255, 153, 0);  height: 38px;
+  background-color: rgb(255, 153, 0);
+  height: 38px;
   width: 200px;
   border: 2px solid black;
-  
 }
 .dino3 {
-background-color: rgb(255, 251, 0);  height: 38px;
+  background-color: rgb(255, 251, 0);
+  height: 38px;
   width: 200px;
   border: 2px solid black;
-  
 }
 .dino4 {
-background-color: rgb(255, 0, 221);  height: 38px;
+  background-color: rgb(255, 0, 221);
+  height: 38px;
   width: 200px;
   border: 2px solid black;
-  
 }
 .dino5 {
-background-color: rgb(60, 255, 0);  height: 38px;
+  background-color: rgb(60, 255, 0);
+  height: 38px;
   width: 200px;
   border: 2px solid black;
-  
 }
 .dino6 {
-background-color: rgb(0, 89, 255);  height: 38px;
+  background-color: rgb(0, 89, 255);
+  height: 38px;
   width: 200px;
   border: 2px solid black;
-  
 }
 
+/* Mensajes / toasts in-page */
+#messages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.msg {
+  min-width: 220px;
+  max-width: 320px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.msg.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.msg.warn {
+  background: #ffc107;
+  color: #111;
+}
+.msg.info {
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+}
+.msg.error {
+  background: #dc3545;
+  color: #fff;
+}
 
+/* --- Zona: scrolleable y etiquetas pegadas --- */
+/* Hacer que el contenido de cada zona sea scrolleable si hay muchos dinos */
+.zone {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
+/* Mantener la etiqueta visible cuando se hace scroll dentro de la zona */
+.zone .zone-label {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: inline-block;
+}
+
+/* Asegurar que los elementos dino no sobresalgan y que quepan en la zona */
+.zone .dino {
+  width: calc(100% - 12px);
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 6px;
+}

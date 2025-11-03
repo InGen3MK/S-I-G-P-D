@@ -15,42 +15,89 @@
     <div class="row justify-content-center">
       <div class="col-12 text-center" id="titulo">
         <h1>Draftosaurus</h1>
-        <h4>Mi tablero</h4>
+      </div>
+    </div>
+
+    <!-- Contador de movimientos restantes -->
+    <div class="row justify-content-center mt-2">
+      <div class="col-auto text-center">
+        <div id="moves-board" class="p-2 rounded" style="background:#fff8; display:inline-block;">
+          Movimientos restantes: <span id="moves-remaining">10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Área de mensajes: contenedor para Bootstrap toasts -->
+    <div id="messages" class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:1050;">
+      <!-- Los toasts se agregarán dinámicamente aquí -->
+    </div>
+
+    <!-- Row con 3 secciones en paralelo: puntos | zonas | dinosaurios -->
+    <div class="row mt-4">
+
+      <!-- Seccion de Puntos (columna izquierda) -->
+      <div class="col-12 col-md-3">
+        <div id="points" class="p-3 border rounded bg-light">
+          <h5>Puntos</h5>
+          <ul class="list-group" id="points-list">
+            <li class="list-group-item d-flex justify-content-between align-items-center">Semejanza <span id="score-semejanza">0</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Diferencia <span id="score-diferencia">0</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Amor <span id="score-amor">0</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Trío <span id="score-trio">0</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Rey <span id="score-rey">0</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Isla <span id="score-isla">0</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Río <span id="score-rio">0</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">Total <span id="score-total">0</span></li>
+          </ul>
+          <small class="text-muted">Arrastra los dinosaurios a las zonas para actualizar puntajes.</small>
+        </div>
       </div>
 
-    </div>
-<div id="back">
-  <div id="semejanza"></div>
-  <div id="diferencia"></div>
-  <div id="amor"></div>
-  <div id="trio"></div>
-  <div id="rey"></div>
-  <div id="isla"></div>
-  <div id="rio"></div>
-</div>
-   <!-- /* <div class="row justify-content-center">
-      <div class="col-12 col-md-8 col-lg-6 text-center">
-        <img src="../Imagenes/tablero.jpeg" alt="tablero de juego" id="tutablero" class="img-fluid">
+      <!-- Seccion de Zonas (columna central) -->
+      <div class="col-12 col-md-6 d-flex justify-content-center">
+        <div id="zones" class="p-3 border rounded bg-white w-100 d-flex justify-content-center">
+          <!-- Contenedor con imagen de fondo y zonas posicionadas -->
+          <div id="back" class="mx-auto">
+            <div class="zone" id="semejanza" data-zone="semejanza"><span class="zone-label">Semejanza</span></div>
+            <div class="zone" id="diferencia" data-zone="diferencia"><span class="zone-label">Diferencia</span></div>
+            <div class="zone" id="trio" data-zone="trio"><span class="zone-label">Trío</span></div>
+            <div class="zone" id="amor" data-zone="amor"><span class="zone-label">Amor</span></div>
+            <div class="zone" id="rey" data-zone="rey"><span class="zone-label">Rey</span></div>
+            <div class="zone" id="isla" data-zone="isla"><span class="zone-label">Isla</span></div>
+            <div class="zone" id="rio" data-zone="rio"><span class="zone-label">Río</span></div>
+          </div>
+        </div>
       </div>
-    </div>*/ -->
-    <div id="dinosaurios">
-      <div class="dino1" draggable="true" data-dino="TRex">TRex</div>
-      <div class="dino2" draggable="true" data-dino="Raptor">Raptor</div>
-      <div class="dino3" draggable="true" data-dino="Ptero">Triceratops</div>
-      <div class="dino4" draggable="true" data-dino="Stego">Brachiosaurus</div>
-      <div class="dino5" draggable="true" data-dino="Spino">Parasaurolophus</div>
-      <div class="dino6" draggable="true" data-dino="Mega">Stegosaurio</div>
+
+      <!-- Seccion de Dinosaurios (columna derecha) -->
+      <div class="col-12 col-md-3">
+        <div id="dinosaurios" class="p-3 border rounded bg-light">
+          <h5>Paleta de Dinosaurios</h5>
+          <div class="d-flex flex-column gap-2" id="dino-palette">
+            <div class="dino dino1" id="dino-TRex" draggable="true" data-dino="TRex">TRex</div>
+            <div class="dino dino2" id="dino-Raptor" draggable="true" data-dino="Raptor">Raptor</div>
+            <div class="dino dino3" id="dino-Ptero" draggable="true" data-dino="Ptero">Triceratops</div>
+            <div class="dino dino4" id="dino-Stego" draggable="true" data-dino="Stego">Brachiosaurus</div>
+            <div class="dino dino5" id="dino-Spino" draggable="true" data-dino="Spino">Parasaurolophus</div>
+            <div class="dino dino6" id="dino-Mega" draggable="true" data-dino="Mega">Stegosaurio</div>
+          </div>
+          <small class="text-muted d-block mt-2">Puedes arrastrar los dinos a las zonas o devolverlos a la paleta.</small>
+        </div>
+      </div>
+
     </div>
 
     <div class="row justify-content-center mt-4">
-      <div class="col-auto d-flex align-items-center">
+      <div class="col-12 d-flex justify-content-center gap-3">
         <button type="button" class="btn btn-secondary btn-lg" id="botonAtras">Atrás</button>
-        <button type="submit" class="btn btn-warning btn-lg" id="boton3">Enviar</button>
+        <button type="submit" class="btn btn-warning btn-lg" id="botonEnviar" style="display:none;">Enviar</button>
       </div>
     </div>
 
 
-    <script src="../ArchivosJS/drag-and-drop.js"></script>
+  <!-- Bootstrap JS (bundle incluye Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="../ArchivosJS/drag-and-drop.js"></script>
     
 
 </body>
