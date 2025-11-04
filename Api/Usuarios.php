@@ -43,21 +43,7 @@ class Usuarios
         }
     }
 
-    // Método de prueba para inserción directa (no se usa)
-    public function insertarDirecto()
-    {
-        // Inserta un usuario de prueba directamente en la base de datos
-        $query = "INSERT INTO {$this->table} (nickname, gmail, contraseña) VALUES ('prueba', 'prueba@correo.com', 'clave123')";
-        try {
-            $stmt = $this->conn->prepare($query);
-            if ($stmt->execute()) {
-                return ['success' => true, 'message' => 'Usuario de prueba insertado correctamente.'];
-            }
-        } catch (PDOException $e) {
-            return ['success' => false, 'message' => 'Error SQL: ' . $e->getMessage()];
-        }
-        return ['success' => false, 'message' => 'Error al insertar usuario de prueba.'];
-    }
+    
 
     // Método para registrar un usuario
     public function registrar($data)
