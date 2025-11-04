@@ -30,9 +30,7 @@ if (botonAtras)
 // Referencias DOM
 // ---------------------------
 // `palette` apunta al contenedor que tiene los dinosaurios originales.
-const palette =
-  document.getElementById("dinosaurios") ||
-  document.getElementById("dino-palette");
+const palette = document.getElementById("dino-palette");
 const zones = document.querySelectorAll(".zone");
 
 // Nota: las reglas de zona, scoring y sanitización están en `recintos.js`.

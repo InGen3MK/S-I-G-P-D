@@ -34,51 +34,6 @@
     saveMovesLog(log);
   }
 
-  // Migrar entradas antiguas en localStorage a la nueva estructura
-  function migrateOldLog() {
-    const raw = localStorage.getItem("draftosaurus_moves");
-    if (!raw) return;
-    let arr;
-    try {
-      arr = JSON.parse(raw);
-    } catch (e) {
-      return;
-    }
-    // Si el arreglo ya está en el nuevo formato (tiene 'Accion' y 'zona'), no hacemos nada
-    const alreadyNew =
-      Array.isArray(arr) &&
-      arr.every(
-        (it) => it && (it.Accion !== undefined || it.zona !== undefined)
-      );
-    if (alreadyNew) return;
-
-    const migrated = arr
-      .map((it) => {
-        if (!it || typeof it !== "object") return null;
-        // Obtener acción desde posibles claves antiguas
-        const rawAction = it.action || it.Accion || "";
-        const mappedAction =
-          rawAction === "add"
-            ? "agregar"
-            : rawAction === "remove"
-            ? "quitar"
-            : rawAction;
-        const dino = it.dino || it.Dino || null;
-        const zona = it.zone || it.zona || null;
-        return { Accion: mappedAction || null, dino: dino, zona: zona };
-      })
-      .filter(Boolean);
-
-    try {
-      localStorage.setItem("draftosaurus_moves", JSON.stringify(migrated));
-    } catch (e) {}
-  }
-
-  // Ejecutar migración al cargar el módulo
-  try {
-    migrateOldLog();
-  } catch (e) {}
-
   async function sendGameData() {
     const botonEnviar = document.getElementById("botonEnviar");
     if (!botonEnviar) return;
@@ -92,10 +47,6 @@
       try {
         const v = localStorage.getItem("usuario");
         if (v) return v;
-        const el =
-          document.getElementById("username") ||
-          document.querySelector(".username");
-        if (el) return el.textContent.trim();
       } catch (e) {}
       return "";
     }
@@ -133,7 +84,12 @@
     }
   }
 
-  window.SaveGame = { getMovesLog, saveMovesLog, recordMove, sendGameData };
+  window.SaveGame = {
+    getMovesLog,
+    saveMovesLog,
+    recordMove,
+    sendGameData,
+  };
 
   // Añadir listener al botonEnviar si existe (para mantener comportamiento previo)
   document.addEventListener("DOMContentLoaded", () => {

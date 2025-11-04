@@ -22,8 +22,10 @@ class PartidaController
         $winner = isset($data['winner']) ? $data['winner'] : '';
 
         // (Opcional) podríamos validar que winner exista en usuarios
-        // $exists = $this->model->winnerExists($winner);
-        // if (!$exists && $winner !== '') { return ['success'=>false,'message'=>'Usuario no encontrado']; }
+        $exists = $this->model->winnerExists($winner);
+        if (!$exists && $winner !== '') {
+            return ['success' => false, 'message' => 'Usuario no encontrado'];
+        }
 
         // Crear la partida
         $partidaId = $this->model->create($totalScore, $winner);
