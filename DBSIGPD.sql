@@ -22,7 +22,8 @@ CREATE TABLE
 
 CREATE TABLE
     tablero (
-        id_tablero INT AUTO_INCREMENT PRIMARY KEY
+        id_tablero INT AUTO_INCREMENT PRIMARY KEY,
+        id_partida INT NOT NULL
     );
 
 CREATE TABLE
@@ -34,17 +35,20 @@ CREATE TABLE
 CREATE TABLE
     recinto (
         id_recinto INT AUTO_INCREMENT PRIMARY KEY,
+        id_tablero INT NOT NULL,
         nombre_recinto VARCHAR(100) NOT NULL
     );
 
 CREATE TABLE
-    utiliza (id_forma INT AUTO_INCREMENT PRIMARY KEY);
+    utiliza (id_tablero INT AUTO_INCREMENT PRIMARY KEY,
+             nombre_recinto VARCHAR(30) NOT NULL,
+             dinosaurio VARCHAR(30) NOT NULL);
 
 CREATE TABLE
     piezas (
         id_pieza INT AUTO_INCREMENT PRIMARY KEY,
         color VARCHAR(100) NOT NULL,
-        forma VARCHAR(150) NOT NULL
+        dinosaurio VARCHAR(150) NOT NULL
     );
 
 INSERT INTO

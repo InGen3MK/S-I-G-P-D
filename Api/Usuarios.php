@@ -42,6 +42,12 @@ class Usuarios
             return ['success' => false, 'message' => 'Usuario o contraseña incorrectos.'];
         }
     }
+<<<<<<< HEAD
+=======
+
+    
+
+>>>>>>> 309ece760c4641c9593a2201771024b943078d9a
     // Método para registrar un usuario
     public function registrar($data)
     {
