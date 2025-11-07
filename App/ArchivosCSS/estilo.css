@@ -325,3 +325,7 @@ body {
   box-sizing: border-box;
   margin-bottom: 6px;
 }
+.p {
+position: relative;
+text-align: center;
+}

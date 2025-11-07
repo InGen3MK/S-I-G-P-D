@@ -10,6 +10,7 @@ CREATE TABLE
         contraseña VARCHAR(50) NOT NULL
     );
 
+--SELECT * FROM `partida` ORDER BY puntuacion DESC LIMIT 5;
 CREATE TABLE
     partida (
         id_partida INT AUTO_INCREMENT PRIMARY KEY,

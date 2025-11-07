@@ -107,6 +107,7 @@ function updateMovesDisplay() {
   // Paso 1: localizar el elemento donde mostramos los movimientos
   const span = document.getElementById("moves-remaining");
   // Paso 2: si existe el span, escribir el valor (protegiendo de negativos)
+  //math.max le das una serie de numero y te da el mas grande, en este caso le das 0 y movesRemaining (12)
   if (span) span.textContent = Math.max(0, window.movesRemaining);
 }
 // Actualiza la visualización de movimientos restantes.
@@ -152,9 +153,12 @@ function endGame() {
   showMessage(
     "La partida ha finalizado. No se permiten más movimientos.",
     "info",
-    5000
+    5000,
   );
+  
+  // if (botonSiguiente) botonSiguiente.style.display = "block";
   if (botonEnviar) botonEnviar.style.display = "inline-block";
+  if (botonEnviar.style.display = "inline-block") botonSiguiente.style.display = "block";
 }
 
 // ---------------------------

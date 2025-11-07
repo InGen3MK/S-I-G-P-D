@@ -28,20 +28,29 @@ class Partida
             $stmt->bindParam(':ganador', $ganador);
             $stmt->execute();
 
+            //guardamos la ultima id del insert en idpartida
             $idPartida = $this->conn->lastInsertId();
+            //traemos la clase tablero de tablero php
             $tablero = new Tablero($this->conn);
+            //creamos la tabla tablero con idpartida como elemento
             $idTablero = $tablero->create($idPartida);
 
+            //traemos la clase utiliza de utiliza php
             $utiliza = new Utiliza($this->conn);
+
+            //recorre tablero data y guarda los valores
             foreach ($tableroData as $nombreRecinto => $dinosaurios) {
-                // Crear el recinto usando el nombre de la clave
+                // traemos la clase recinto de recinto php
                 $recinto = new Recinto($this->conn);
 
+                //creamos un recinto mandandole idtablero y nombrerecinto
                 $idRecinto = $recinto->create($idTablero, $nombreRecinto);
 
+                //recorremos el array de dinosaurios y guardamos los valores en dino
                 foreach ($dinosaurios as $dino) {
+                    //traemos la clase utiliza de utiliza php
                     $utiliza = new Utiliza($this->conn);
-
+                    //creamos la tabla utiliza con los valores idrecinto y dino
                     $utiliza->create($idRecinto, $dino);
                 }
             }

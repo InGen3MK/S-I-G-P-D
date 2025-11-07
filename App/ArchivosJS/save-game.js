@@ -51,26 +51,31 @@
       } catch (e) {}
       return "";
     }
+    //esta funcion obtiene los nombres de las zonas y los dinosaurios que hay puestos en cada zona
     function getTablero() {
+      //tablero es un objeto vacio
       let tablero = {};
+      //seleccionas todo lo que tenga clase zona
       const zonas = document.querySelectorAll(".zone");
 
+      //recorre todas las zonas y obtiene sus nombres
       zonas.forEach((zona) => {
         const zoneName = zona.getAttribute("data-zone");
 
+        //obtiene todos los dinosaurios que hay en cada zona, lo guarda en un array y solo guarda sus nombres
         const dinos = Array.from(zona.querySelectorAll(".dino")).map(
           (dinoElem) => {
             const dinoName = dinoElem.getAttribute("data-dino");
             return dinoName;
           }
         );
-
+        //le ponemos zonename como propiedad de tablero y como valor el array de los nombres de dinosaurios
         tablero[zoneName] = dinos;
       });
-
+      //devuelve el objeto tablero
       return tablero;
     }
-
+    //la constante tablero es igual a la funcion getTablero
     const tablero = getTablero();
 
     const payload = { totalScore, winner: getLoggedUsername(), tablero };
