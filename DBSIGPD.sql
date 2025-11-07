@@ -36,12 +36,12 @@ CREATE TABLE
     recinto (
         id_recinto INT AUTO_INCREMENT PRIMARY KEY,
         id_tablero INT NOT NULL,
-        nombre_recinto VARCHAR(100) NOT NULL
+        nombre_recinto VARCHAR(20) NOT NULL
     );
-
+ 
 CREATE TABLE
-    utiliza (id_tablero INT AUTO_INCREMENT PRIMARY KEY,
-             nombre_recinto VARCHAR(30) NOT NULL,
+    utiliza (id_utiliza INT AUTO_INCREMENT PRIMARY KEY,
+             id_recinto INT NOT NULL,
              dinosaurio VARCHAR(30) NOT NULL);
 
 CREATE TABLE

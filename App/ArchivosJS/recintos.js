@@ -23,25 +23,6 @@
     rio: { accepts: "any", max: 12 },
   };
 
-  // Handlers por zona (puntos de extensión). Se puede ampliar con más zonas.
-  const zoneHandlers = {
-    diferencia: {
-      onAdd(zoneEl, dinoType, placedEl) {
-        showMessage(
-          `Dino ${dinoType} agregado a ${zoneEl.getAttribute("data-zone")}`,
-          "info",
-          1500
-        );
-      },
-      onRemove(zoneEl, dinoType) {
-        showMessage(
-          `Dino ${dinoType} removido de ${zoneEl.getAttribute("data-zone")}`,
-          "info",
-          1200
-        );
-      },
-    },
-  };
 
   // Helpers de DOM
   const zones = document.querySelectorAll(".zone");
@@ -84,6 +65,7 @@
     }
     return { ok: true };
   }
+  //me quede aca
 
   // updateScores: similar a la versión anterior, centraliza el cálculo
   function updateScores() {
@@ -297,7 +279,6 @@
   // Exponer API global
   window.Recintos = {
     zoneRules,
-    zoneHandlers,
     getRules,
     canAccept,
     updateScores,

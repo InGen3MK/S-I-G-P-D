@@ -1,17 +1,25 @@
 <?php
 // Modelo para la entidad 'partida' y el log asociado
+require_once 'Tablero.php';
+require_once 'Recinto.php';
+require_once 'Utiliza.php';
+
+
 class Partida
 {
+    private $tablero;
+    private $recinto;
     private $conn;
     private $table = 'partida';
 
     public function __construct($db)
     {
+
         $this->conn = $db;
     }
 
     // Crea una nueva partida y devuelve el id insertado o false
-    public function create($puntuacion, $ganador)
+    public function create($puntuacion, $ganador, $tableroData)
     {
         try {
             $query = "INSERT INTO {$this->table} (puntuacion, ganador) VALUES (:puntuacion, :ganador)";
@@ -19,7 +27,27 @@ class Partida
             $stmt->bindParam(':puntuacion', $puntuacion);
             $stmt->bindParam(':ganador', $ganador);
             $stmt->execute();
-            return $this->conn->lastInsertId();
+
+            $idPartida = $this->conn->lastInsertId();
+            $tablero = new Tablero($this->conn);
+            $idTablero = $tablero->create($idPartida);
+
+            $utiliza = new Utiliza($this->conn);
+            foreach ($tableroData as $nombreRecinto => $dinosaurios) {
+                // Crear el recinto usando el nombre de la clave
+                $recinto = new Recinto($this->conn);
+
+                $idRecinto = $recinto->create($idTablero, $nombreRecinto);
+
+                foreach ($dinosaurios as $dino) {
+                    $utiliza = new Utiliza($this->conn);
+
+                    $utiliza->create($idRecinto, $dino);
+                }
+            }
+
+
+            return $idPartida;
         } catch (PDOException $e) {
             return false;
         }

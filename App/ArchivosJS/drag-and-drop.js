@@ -1,20 +1,10 @@
-/* Core drag & drop script (lite)
-   - Contiene la lógica de arrastre/soltar, el contador de movimientos y
+/* - Contiene la lógica de arrastre/soltar, el contador de movimientos y
      la inicialización de elementos arrastrables.
    - La lógica de recintos (reglas, puntuación y sanitización) está en
      `recintos.js` y las funciones de guardado/registro están en
      `save-game.js`.
 */
 
-// Asegurar que los módulos Recintos y SaveGame estén disponibles.
-// Estos scripts deben cargarse antes que este archivo en el HTML.
-
-// ---------------------------
-// Ayudantes de navegación (pequeñas utilidades para cambiar de página)
-// ---------------------------
-// Nota para principiantes: estos listeners simplemente cambian la URL
-// del navegador. Son independientes de la lógica del juego; se colocan
-// aquí para que la página tenga botones de navegación.
 const boton3 = document.getElementById("boton3");
 const botonAtras = document.getElementById("botonAtras");
 if (boton3)
@@ -54,11 +44,14 @@ try {
 // - timeout: milisegundos antes de ocultar (por defecto 3000)
 // Uso: showMessage('Texto', 'info', 2000)
 function showMessage(text, type = "info", timeout = 3000) {
+  //se busca la id messages en tercera, se guarda en constante container
   const container = document.getElementById("messages");
   if (!container) return alert(text);
 
   // Preferir Bootstrap Toasts cuando estén disponibles
+  //pregunta si existe bootstrap y si existe le preguntas si la toast es una funcion
   if (window.bootstrap && typeof window.bootstrap.Toast === "function") {
+    //definimos la constante toastEl creando un div y empezamos a darle estilos
     const toastEl = document.createElement("div");
     toastEl.className = `toast align-items-center text-bg-${
       type === "warn" ? "warning" : type === "error" ? "danger" : "dark"
@@ -81,13 +74,17 @@ function showMessage(text, type = "info", timeout = 3000) {
     toastBody.appendChild(bodyContent);
     toastBody.appendChild(btn);
     toastEl.appendChild(toastBody);
+    //se agrega el toastEl al container de mas arriba para que se pueda mostrar la toast en ese lugar
     container.appendChild(toastEl);
 
+    //se crea la toast con las opciones de autohide y delay
     const toast = new bootstrap.Toast(toastEl, {
       autohide: true,
       delay: timeout,
     });
+    //se hace visible la toast
     toast.show();
+    //se elimina la toast del container cuando se oculta
     toastEl.addEventListener("hidden.bs.toast", () => {
       try {
         container.removeChild(toastEl);
@@ -95,22 +92,6 @@ function showMessage(text, type = "info", timeout = 3000) {
     });
     return;
   }
-
-  // Alternativa ligera cuando no hay Bootstrap
-  const div = document.createElement("div");
-  div.className = "msg " + (type || "info");
-  div.textContent = text;
-  container.appendChild(div);
-  void div.offsetWidth; // force reflow
-  div.classList.add("show");
-  setTimeout(() => {
-    div.classList.remove("show");
-    setTimeout(() => {
-      try {
-        container.removeChild(div);
-      } catch (e) {}
-    }, 220);
-  }, timeout);
 }
 
 // ---------------------------
@@ -119,6 +100,7 @@ function showMessage(text, type = "info", timeout = 3000) {
 window.movesRemaining = 12;
 let gameActive = true;
 const botonEnviar = document.getElementById("botonEnviar");
+//si existe el botonEnviar se oculta
 if (botonEnviar) botonEnviar.style.display = "none";
 
 function updateMovesDisplay() {
@@ -138,6 +120,7 @@ function decrementMoves(n = 1) {
   // Paso 1: no hacer nada si la partida ya terminó
   if (!gameActive) return;
   // Paso 2: reducir el contador en 'n'
+  // aca es lo mismo que poner el valor de window.movesRemaining = window.movesRemaining - n(1 en este caso)
   window.movesRemaining -= n;
   // Paso 3: si llega a 0 o menos, forzamos 0, actualizamos la UI y
   // terminamos la partida llamando a endGame()
@@ -190,7 +173,6 @@ function endGame() {
 // como para los clones que se generan al colocarlos en una zona.
 function makeDraggable(dino) {
   if (!dino) return;
-  if (!dino.id) dino.id = "dino-" + Math.random().toString(36).slice(2, 9);
   dino.setAttribute("draggable", true);
 
   dino.addEventListener("dragstart", (e) => {
@@ -235,14 +217,11 @@ function makeDraggable(dino) {
         }
       } catch (e) {}
       try {
-        if (
-          window.Recintos &&
-          window.Recintos.zoneHandlers &&
-          window.Recintos.zoneHandlers[zoneName] &&
-          typeof window.Recintos.zoneHandlers[zoneName].onRemove === "function"
-        ) {
-          window.Recintos.zoneHandlers[zoneName].onRemove(parentZone, type);
-        }
+        showMessage(
+          `Dino ${type} removido de ${parentZone.getAttribute("data-zone")}`,
+          "info",
+          1200
+        );
       } catch (e) {}
       if (window.Recintos && typeof window.Recintos.updateScores === "function")
         window.Recintos.updateScores();
@@ -350,20 +329,12 @@ zones.forEach((zone) => {
           window.SaveGame.recordMove("add", incomingType, zoneName);
         }
       } catch (e) {}
-      // ejecutar handler específico de la zona si existe
       try {
-        if (
-          window.Recintos &&
-          window.Recintos.zoneHandlers &&
-          window.Recintos.zoneHandlers[zoneName] &&
-          typeof window.Recintos.zoneHandlers[zoneName].onAdd === "function"
-        ) {
-          window.Recintos.zoneHandlers[zoneName].onAdd(
-            zone,
-            incomingType,
-            cloned
-          );
-        }
+        showMessage(
+          `Dino ${incomingType} agregado a ${zone.getAttribute("data-zone")}`,
+          "info",
+          1500
+        );
       } catch (e) {}
       if (window.Recintos && typeof window.Recintos.updateScores === "function")
         window.Recintos.updateScores();

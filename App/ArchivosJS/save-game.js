@@ -24,6 +24,7 @@
     const log = getMovesLog();
     // Map action values to Spanish words and rename keys per requirements
     const mappedAction =
+      //la accion a guardar puede ser agregar o quitar
       action === "add" ? "agregar" : action === "remove" ? "quitar" : action;
     const entry = {
       Accion: mappedAction,
@@ -50,7 +51,29 @@
       } catch (e) {}
       return "";
     }
-    const payload = { totalScore, winner: getLoggedUsername() };
+    function getTablero() {
+      let tablero = {};
+      const zonas = document.querySelectorAll(".zone");
+
+      zonas.forEach((zona) => {
+        const zoneName = zona.getAttribute("data-zone");
+
+        const dinos = Array.from(zona.querySelectorAll(".dino")).map(
+          (dinoElem) => {
+            const dinoName = dinoElem.getAttribute("data-dino");
+            return dinoName;
+          }
+        );
+
+        tablero[zoneName] = dinos;
+      });
+
+      return tablero;
+    }
+
+    const tablero = getTablero();
+
+    const payload = { totalScore, winner: getLoggedUsername(), tablero };
     try {
       const resp = await fetch("../../Api/saveGame.php", {
         method: "POST",

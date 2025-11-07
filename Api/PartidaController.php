@@ -20,6 +20,7 @@ class PartidaController
         }
         $totalScore = intval($data['totalScore']);
         $winner = isset($data['winner']) ? $data['winner'] : '';
+        $tablero = isset($data['tablero']) ? $data['tablero'] : [];
 
         // (Opcional) podríamos validar que winner exista en usuarios
         $exists = $this->model->winnerExists($winner);
@@ -28,7 +29,7 @@ class PartidaController
         }
 
         // Crear la partida
-        $partidaId = $this->model->create($totalScore, $winner);
+        $partidaId = $this->model->create($totalScore, $winner, $tablero);
         if (!$partidaId) {
             return ['success' => false, 'message' => 'Error insertando partida'];
         }
