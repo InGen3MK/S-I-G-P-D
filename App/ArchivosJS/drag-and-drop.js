@@ -7,6 +7,8 @@
 
 const boton3 = document.getElementById("boton3");
 const botonAtras = document.getElementById("botonAtras");
+// Referencia al botón "Siguiente" que se mostrará tras guardar la partida
+const botonSiguiente = document.getElementById("botonSiguiente");
 if (boton3)
   boton3.addEventListener("click", () => {
     window.location.href = "cuarta.html";
@@ -101,7 +103,9 @@ window.movesRemaining = 12;
 let gameActive = true;
 const botonEnviar = document.getElementById("botonEnviar");
 //si existe el botonEnviar se oculta
-if (botonEnviar) botonEnviar.style.display = "none";
+  // Ocultar inicialmente el botón Enviar y el botón Siguiente hasta que corresponda
+  if (botonEnviar) botonEnviar.style.display = "none"; // se muestra al terminar la partida
+  if (botonSiguiente) botonSiguiente.style.display = "none"; // se mostrará tras guardar la partida
 
 function updateMovesDisplay() {
   // Paso 1: localizar el elemento donde mostramos los movimientos
@@ -157,8 +161,11 @@ function endGame() {
   );
   
   // if (botonSiguiente) botonSiguiente.style.display = "block";
+  // Mostrar el botón Enviar para que el usuario pueda guardar la partida
   if (botonEnviar) botonEnviar.style.display = "inline-block";
-  if (botonEnviar.style.display = "inline-block") botonSiguiente.style.display = "block";
+  // Asegurarnos de que el botón Siguiente permanezca oculto al terminar la partida
+  // (se hará visible solo después de un guardado exitoso)
+  if (botonSiguiente) botonSiguiente.style.display = "none";
 }
 
 // ---------------------------

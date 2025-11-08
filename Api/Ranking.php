@@ -1,33 +1,42 @@
 <?php
-// Modelo para la entidad 'recinto' y el log asociado
-class Ranking
-{
-    private $conn;
-    private $table = 'partida';
-
-    public function __construct($db)
-    {
-        $this->conn = $db;
-    }
-
-    // Crea una nueva recinto y devuelve el id insertado o false
-    public function select($idTablero, $nombreRecinto)
-    {
-        try {
-            $query = "SELECT ganador, puntuacion FROM $this->$table ORDER BY puntuacion DESC LIMIT 5;
-";
-            $stmt = $this->conn->prepare($query);
-            // $stmt->bindParam(':id_tablero', $idTablero);
-            // $stmt->bindParam(':nombre_recinto', $nombreRecinto);
-            $stmt->execute();
+require_once 'database.php'; // incluir la definición de la clase Database y la conexión
 
 
-            return select();
-        } catch (PDOException $e) {
-            return false;
+
+// Enviar cabecera indicando que la respuesta será JSON en UTF-8
+header('Content-Type: application/json; charset=utf-8');
+
+try {
+    $database = new Database();               // crear instancia del helper de BD
+    $db = $database->connect();               // obtener la conexión PDO (o false si falla)
+    
+    if ($db) {
+        // Preparar la consulta: obtener los 5 mejores (ganador y puntuación)
+        $query = "SELECT ganador, puntuacion FROM partida ORDER BY puntuacion DESC LIMIT 5";
+        $stmt = $db->prepare($query);         // preparar la sentencia SQL
+        $stmt->execute();                     // ejecutar la consulta
+        
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC); // traer todos los resultados como array asociativo
+        
+        // Si no hay resultados, devolver un array vacío (no insertamos datos automáticamente)
+        if (empty($resultados)) {
+            $resultados = [];
         }
+        
+        // Devolver los resultados en formato JSON (puede ser array vacío si no hay filas)
+        echo json_encode($resultados);
+    } else {
+        // Si la conexión a la base de datos falló, devolver un JSON con el error
+        echo json_encode([
+            'error' => true,
+            'message' => 'Error de conexión a la base de datos'
+        ]);
     }
-
+} catch (Exception $e) {
+    // En caso de excepción, devolver información del error en JSON (útil en desarrollo)
+    echo json_encode([
+        'error' => true,
+        'message' => 'Error: ' . $e->getMessage()
+    ]);
 }
-
 ?>

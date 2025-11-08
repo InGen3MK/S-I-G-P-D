@@ -98,6 +98,25 @@
           localStorage.removeItem("draftosaurus_moves");
         } catch (e) {}
         botonEnviar.disabled = true;
+        // Mostrar el botón Siguiente y habilitar navegación a cuarta.html
+        try {
+          // Obtener el botón "Siguiente" del DOM
+          const botonSiguiente = document.getElementById("botonSiguiente");
+          if (botonSiguiente) {
+            // Hacer visible el botón para que el usuario pueda avanzar
+            botonSiguiente.style.display = "inline-block";
+            // Asegurar que esté habilitado (no en estado disabled)
+            botonSiguiente.disabled = false;
+            // Añadir un listener que redirige a la página del ranking cuando se clickea
+            // Esto permite que el usuario vaya a `cuarta.html` y vea el ranking actualizado
+            botonSiguiente.addEventListener("click", () => {
+              window.location.href = "cuarta.html";
+            });
+          }
+        } catch (e) {
+          // Si algo falla al manipular el DOM, ignoramos silenciosamente
+          // (no queremos romper la experiencia de guardado por un error aquí)
+        }
       } else {
         showMessage(
           "Error guardando la partida: " + (data.message || "sin detalle"),

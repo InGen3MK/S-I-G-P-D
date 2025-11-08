@@ -1,7 +1,19 @@
 body {
   /* Color de fondo principal de la página */
   background-color: antiquewhite;
+ 
 }
+#fondoPrincipal {
+background: url("../Imagenes/fondo-index.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+#parrafo {
+  /* Estilo para el párrafo descriptivo */
+  backdrop-filter: blur(20px);
+  color: #ffffff;
+}
+  
+  
 #boton1 {
   /* Botón principal, centrado y con margen superior */
   margin-top: 10px;
@@ -45,8 +57,10 @@ body {
   margin: 170px;
 }
 #boton4 {
-  margin-left: 35%;
-  align-content: center;
+  /* Centrar el botón de forma responsiva: bloque con margen automático */
+  display: block;
+  margin: 20px auto; /* margen vertical y centrado horizontal */
+  text-align: center;
 }
 .tablapuntaje {
   width: 100%;
