@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             timer.innerText = `Redirigiendo en ${seconds} segundos...`;
             if (seconds === 0) {
               clearInterval(interval);
-              window.location.href = "index.html";
+              window.location.href = "tercera.html";
             }
           }, 1000);
         } else {
@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
         //fetch es metodo de JS para hacer peticiones HTTP asincronas
       });
   });
-
   function mostrarMensaje(msg, tipo) {
     // Función para mostrar mensajes en el formulario de login.
     let div = document.getElementById("msg-login");

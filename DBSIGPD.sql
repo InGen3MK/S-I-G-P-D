@@ -38,11 +38,13 @@ CREATE TABLE
         id_tablero INT NOT NULL,
         nombre_recinto VARCHAR(20) NOT NULL
     );
- 
+
 CREATE TABLE
-    utiliza (id_utiliza INT AUTO_INCREMENT PRIMARY KEY,
-             id_recinto INT NOT NULL,
-             dinosaurio VARCHAR(30) NOT NULL);
+    utiliza (
+        id_utiliza INT AUTO_INCREMENT PRIMARY KEY,
+        id_recinto INT NOT NULL,
+        dinosaurio VARCHAR(30) NOT NULL
+    );
 
 CREATE TABLE
     piezas (
