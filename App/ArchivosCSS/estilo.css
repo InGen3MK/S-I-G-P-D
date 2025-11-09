@@ -12,8 +12,50 @@ background: url("../Imagenes/fondo-index.jpg") no-repeat center center fixed;
   backdrop-filter: blur(20px);
   color: #ffffff;
 }
+  /* Color del h1 "Draftosaurus, animación y sombreado"*/
+
+  #TituloIndex {
+  color: white;
+  animation: AnimacionDelH1 4s ease-in-out infinite;
+  text-shadow: 0 0 20px cyan; 
+
+}
+
+/* Animación para el H1*/
+@keyframes AnimacionDelH1 {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+  /* Estilo de los botones */
   
-  
+a.btn,
+button.btn {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  /* Sombra: 0(sin mover lateralmente) 5px(abajo) 15px(difuminado) negro-30% */
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.btn:active {
+  transform: translateY(-2px);
+}
+
 #boton1 {
   /* Botón principal, centrado y con margen superior */
   margin-top: 10px;
@@ -343,3 +385,17 @@ background: url("../Imagenes/fondo-index.jpg") no-repeat center center fixed;
 position: relative;
 text-align: center;
 }
+
+
+/* Animacion y color para el titulo del Manual*/
+ #TituloManual {
+  color: white;
+  animation: AnimacionDelH1 4s ease-in-out infinite;
+  text-shadow: 0 0 20px cyan; }
+
+  #ColorBGMAnual{
+
+    background-color: #7ABF92;
+
+
+  }
