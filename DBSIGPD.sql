@@ -76,3 +76,4 @@ VALUES
         'rodrigo27021@gmail.com',
         'rodri123'
     );
+    
