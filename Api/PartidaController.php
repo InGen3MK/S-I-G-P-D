@@ -15,26 +15,32 @@ class PartidaController
     public function guardarPartida($data)
     {
         // Validaciones básicas
+        //pregunta si existe totalScore
         if (!isset($data['totalScore'])) {
+            //si no existe totalscore devuelve Falta totalScore
             return ['success' => false, 'message' => 'Falta totalScore'];
         }
+        //dice que totalscore es un entero 
         $totalScore = intval($data['totalScore']);
+        //pregunta si existe winner, si existe devuelve winner si no existe devuelve vacio
         $winner = isset($data['winner']) ? $data['winner'] : '';
+        //pregunta si existe tablero, si existe devuelve tablero si no existe devuelve array vacio
         $tablero = isset($data['tablero']) ? $data['tablero'] : [];
 
-        // (Opcional) podríamos validar que winner exista en usuarios
+        //pregunta si el ganador existe en la base de datos
         $exists = $this->model->winnerExists($winner);
+        //si no existe el ganador y winner no es vacio devuelve Usuario no encontrado
         if (!$exists && $winner !== '') {
             return ['success' => false, 'message' => 'Usuario no encontrado'];
         }
 
         // Crear la partida
         $partidaId = $this->model->create($totalScore, $winner, $tablero);
+        //si no existe partidaId devuelve Error insertando partida
         if (!$partidaId) {
             return ['success' => false, 'message' => 'Error insertando partida'];
         }
 
-        // No guardamos el movesLog en la base de datos por decisión del proyecto.
         // Simplemente devolvemos éxito con el id de partida.
         return ['success' => true, 'message' => 'Partida guardada', 'partidaId' => $partidaId];
     }

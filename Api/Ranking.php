@@ -7,9 +7,10 @@ require_once 'database.php'; // incluir la definición de la clase Database y la
 header('Content-Type: application/json; charset=utf-8');
 
 try {
-    $database = new Database();               // crear instancia del helper de BD
-    $db = $database->connect();               // obtener la conexión PDO (o false si falla)
+    $database = new Database();               // traemos la clase Database
+    $db = $database->connect();               // db es igual a la conexion a la base de datos
     
+    //si existe db
     if ($db) {
         // Preparar la consulta: obtener los 5 mejores (ganador y puntuación)
         $query = "SELECT ganador, puntuacion FROM partida ORDER BY puntuacion DESC LIMIT 5";
