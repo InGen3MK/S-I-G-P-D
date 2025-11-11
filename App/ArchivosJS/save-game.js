@@ -70,7 +70,7 @@
           }
         );
         //le ponemos zonename como propiedad de tablero y como valor el array de los nombres de dinosaurios
-        tablero[zoneName] = dinos;
+        tablero[zoneName] = dinos; 
       });
       //devuelve el objeto tablero
       return tablero;

@@ -42,7 +42,8 @@
         (d) => d.getAttribute("data-dino")
       );
       //sirve para saber si hay dinosaurios distintos en la zona
-      const distinct = Array.from(new Set(existing));
+      // crea un set con los tipos existentes para eliminar duplicados
+      const distinct = Array.from(new Set(existing)); //set es una estructura de datos que no permite duplicados
       //si ya hay un dinosaurio en la zona y no es del mismo tipo que el que queremos colocar ahi +
       if (distinct.length > 0 && distinct[0] !== incomingType)
         //+ devuelve que error porque no se puede colocar esa nueva especie ya que ya hay otra
@@ -75,9 +76,7 @@
     }
     return { ok: true };
   }
-  //me quede aca
 
-  // updateScores: similar a la versión anterior, centraliza el cálculo
   function updateScores() {
     let total = 0;
     zones.forEach((zone) => {
@@ -245,6 +244,7 @@
         label = document.createElement("span");
         label.className = "zone-label";
         label.textContent = zoneName;
+        //esta linea inserta el label al inicio del elemento zone
         zone.insertBefore(label, zone.firstChild);
       }
       //agrega el badge que muestra el conteo de dinosaurios en la zona
@@ -320,12 +320,12 @@
         //si la cantidad de dinosaurios es mayor que el maximo permitido
         if (dinos.length > max) {
           //obtiene los dinosaurios que exceden el maximo
-          const toRemove = dinos.slice(max);
+          const toRemove = dinos.slice(max); //el slice obtiene todos los elementos a partir del indice maximo en este caso 3 y los corta
           //remueve los dinosaurios excedentes
           toRemove.forEach((d) => d.remove());
           //muestra un mensaje indicando cuantos se eliminaron
           showMessage(
-            `Zona ${zoneName}: eliminados ${toRemove.length} animales para respetar el límite de ${max}.`,
+            `Zona ${zoneName}: eliminados ${toRemove.length} dinosaurios para respetar el límite de ${max}.`,
             "warn",
             3500
           );
@@ -351,7 +351,7 @@
           toRemove.forEach((d) => d.remove());
           //muestra un mensaje indicando cuantos se eliminaron
           showMessage(
-            `Zona ${zoneName}: eliminados ${toRemove.length} animales para respetar el límite de 1.`,
+            `Zona ${zoneName}: eliminados ${toRemove.length} dinosaurios para respetar el límite de 1.`,
             "warn",
             3500
           );
@@ -377,7 +377,7 @@
           toRemove.forEach((d) => d.remove());
           //muestra un mensaje indicando cuantos se eliminaron
           showMessage(
-            `Zona ${zoneName}: eliminados ${toRemove.length} animales para respetar el límite de 1.`,
+            `Zona ${zoneName}: eliminados ${toRemove.length} dinosaurios para respetar el límite de 1.`,
             "warn",
             3500
           );

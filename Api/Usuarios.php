@@ -109,31 +109,5 @@ class Usuarios
         return ['success' => false, 'message' => 'Error al registrar usuario.'];
     }
 
-    // Método para obtener todos los registros de animales de la base de datos
-    public function getAll()
-    {
-        // Creamos la consulta SQL para seleccionar los campos deseados de la tabla 'animales'
-        $query = "SELECT id_usuario, nickname, contraseña, gmail FROM {$this->table}";
-        // Preparamos la consulta usando la conexión a la base de datos para evitar inyecciones SQL
-        $stmt = $this->conn->prepare($query);
-        // Ejecutamos la consulta preparada
-        $stmt->execute();
-        // Obtenemos todos los resultados como un array asociativo y lo devolvemos
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
 
-    // Método para obtener un animal específico por su ID
-    public function getByName($nickname)
-    {
-        // Creamos la consulta SQL con un marcador de posición para el ID
-        $query = "SELECT id_usuario,nickname,contraseña FROM {$this->table} WHERE nickname = :nickname";
-        // Preparamos la consulta usando la conexión a la base de datos
-        $stmt = $this->conn->prepare($query);
-        // Asociamos el valor recibido en $id al marcador ':id' en la consulta, asegurando que sea un entero
-        $stmt->bindParam(":nickname", $nickname, PDO::PARAM_STR);
-        // Ejecutamos la consulta preparada
-        $stmt->execute();
-        // Obtenemos el resultado como un array asociativo (solo un registro) y lo devolvemos
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
 }
